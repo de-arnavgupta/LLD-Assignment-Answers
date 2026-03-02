@@ -2,11 +2,7 @@ package com.example.tickets;
 
 import java.util.regex.Pattern;
 
-/**
- * Central place for validation helpers.
- *
- * Students can extend this as needed.
- */
+// helper methods for validating ticket fields
 public final class Validation {
 
     private static final Pattern EMAIL = Pattern.compile("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$");

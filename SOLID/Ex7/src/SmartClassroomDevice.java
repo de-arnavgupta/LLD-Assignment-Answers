@@ -1,2 +1,2 @@
-// marker — groups all classroom devices under one type
+// common parent for all classroom devices
 public interface SmartClassroomDevice { }

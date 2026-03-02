@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-// proper lazy thread-safe singleton using static holder idiom
+// singleton metrics registry using the static holder pattern
 public class MetricsRegistry implements Serializable {
 
     @Serial
@@ -14,18 +14,18 @@ public class MetricsRegistry implements Serializable {
 
     private final Map<String, Long> counters = new HashMap<>();
 
-    // flag to block reflection from creating a second instance
+    // prevents reflection from creating a second instance
     private static boolean created = false;
 
     private MetricsRegistry() {
-        // if someone tries reflection after the instance already exists, blow up
+        // blow up if someone tries to call the constructor again via reflection
         if (created) {
-            throw new IllegalStateException("Use getInstance() — don't try to create another one");
+            throw new IllegalStateException("singleton already exists, use getInstance()");
         }
         created = true;
     }
 
-    // holder class is only loaded when getInstance() is first called (lazy + thread-safe)
+    // inner class gets loaded lazily by the JVM, so this is thread-safe
     private static class Holder {
         static final MetricsRegistry INSTANCE = new MetricsRegistry();
     }
@@ -50,7 +50,7 @@ public class MetricsRegistry implements Serializable {
         return Collections.unmodifiableMap(new HashMap<>(counters));
     }
 
-    // deserialization returns the existing singleton, not a new object
+    // when deserialized, return the existing instance instead of a new one
     @Serial
     private Object readResolve() {
         return getInstance();

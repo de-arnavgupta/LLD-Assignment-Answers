@@ -1,4 +1,4 @@
-// takes its dependencies through the constructor; pricing pulled out into FareCalc
+// handles the booking flow — distance, driver, fare, payment
 public class TransportBookingService {
     private final DistanceCalc distCalc;
     private final DriverAlloc driverAlloc;

@@ -1,4 +1,4 @@
-// only implements power + brightness (doesn't need temp/scan/input)
+// lights can be switched on/off and dimmed
 public class LightsPanel implements Switchable, BrightnessControllable {
     @Override public void powerOn() { /* always on */ }
     @Override public void powerOff() { System.out.println("Lights OFF"); }

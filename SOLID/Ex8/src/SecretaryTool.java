@@ -1,4 +1,4 @@
-// only handles meeting minutes
+// secretary can only deal with meeting minutes
 public class SecretaryTool implements MinutesOps {
     private final MinutesBook book;
     public SecretaryTool(MinutesBook book) { this.book = book; }

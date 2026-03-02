@@ -7,10 +7,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Spawns many threads racing on getInstance().
- * Starter is expected to sometimes create >1 instance. After fix, must always be 1.
- */
+// spawns a bunch of threads all calling getInstance() at the same time
+// should always see exactly 1 unique instance
 public class ConcurrencyCheck {
 
     public static void main(String[] args) throws Exception {

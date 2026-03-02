@@ -1,4 +1,4 @@
-// rough Manhattan distance on scaled degrees (good enough for demo)
+// rough Manhattan distance on scaled degrees, good enough for demo
 public class DistanceCalculator implements DistanceCalc {
     @Override
     public double km(GeoPoint a, GeoPoint b) {

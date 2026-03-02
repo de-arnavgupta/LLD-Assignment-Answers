@@ -1,4 +1,4 @@
-// only implements power + input (doesn't need brightness/temp/scan)
+// projector needs power and an input port, nothing else
 public class Projector implements Switchable, InputConnectable {
     private boolean on;
 

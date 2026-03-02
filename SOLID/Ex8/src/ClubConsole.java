@@ -1,4 +1,4 @@
-// each role gets its own narrow interface
+// wires up the different roles and runs the demo
 public class ClubConsole {
     private final BudgetLedger ledger;
     private final MinutesBook minutes;

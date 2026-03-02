@@ -1,4 +1,4 @@
-// what the pipeline needs from a plagiarism checker
+// plagiarism checking interface
 public interface PlagiarismCheck {
     int check(Submission s);
 }

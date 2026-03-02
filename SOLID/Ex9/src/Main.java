@@ -1,4 +1,4 @@
-// plug in the implementations and run
+// wire up and run
 public class Main {
     public static void main(String[] args) {
         System.out.println("=== Evaluation Pipeline ===");

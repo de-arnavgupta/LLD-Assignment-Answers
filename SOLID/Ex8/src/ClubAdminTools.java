@@ -1,2 +1,2 @@
-// marker — groups all club admin tools under one type
+// base type for all club admin role interfaces
 public interface ClubAdminTools { }

@@ -1,4 +1,4 @@
-// default impl — can swap this out for a real one later
+// simple check — can replace with a real one later
 public class PlagiarismChecker implements PlagiarismCheck {
     @Override
     public int check(Submission s) {

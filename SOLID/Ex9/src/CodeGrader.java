@@ -1,4 +1,4 @@
-// default impl — scores based on code length + rubric bonus
+// scores based on code length + rubric bonus (dummy logic for now)
 public class CodeGrader implements CodeGrade {
     @Override
     public int grade(Submission s, Rubric r) {

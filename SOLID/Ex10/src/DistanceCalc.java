@@ -1,4 +1,4 @@
-// what the booking service needs from a distance calculator
+// distance calculation interface
 public interface DistanceCalc {
     double km(GeoPoint a, GeoPoint b);
 }

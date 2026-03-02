@@ -3,11 +3,11 @@ package com.example.tickets;
 import java.util.ArrayList;
 import java.util.List;
 
-// service that creates and "updates" tickets without ever mutating them
+// creates tickets and handles "updates" by returning new instances
 public class TicketService {
 
     public IncidentTicket createTicket(String id, String reporterEmail, String title) {
-        // builder handles all validation — no need to check here
+        // validation is inside build(), we just set the fields
         return new IncidentTicket.Builder(id, reporterEmail, title)
                 .priority("MEDIUM")
                 .source("CLI")
@@ -16,7 +16,7 @@ public class TicketService {
                 .build();
     }
 
-    // returns a new ticket — the original stays unchanged
+    // makes a new ticket with CRITICAL priority, original is left alone
     public IncidentTicket escalateToCritical(IncidentTicket t) {
         List<String> updatedTags = new ArrayList<>(t.getTags());
         updatedTags.add("ESCALATED");
@@ -27,7 +27,7 @@ public class TicketService {
                 .build();
     }
 
-    // returns a new ticket with the assignee set
+    // assign someone to the ticket (returns a new copy)
     public IncidentTicket assign(IncidentTicket t, String assigneeEmail) {
         return t.toBuilder()
                 .assigneeEmail(assigneeEmail)

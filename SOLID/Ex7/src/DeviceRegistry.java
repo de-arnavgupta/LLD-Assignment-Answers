@@ -1,12 +1,12 @@
 import java.util.*;
 
-// holds all devices; lets you look them up by capability type
+// stores all devices and lets us find them by what they can do
 public class DeviceRegistry {
     private final List<SmartClassroomDevice> devices = new ArrayList<>();
 
     public void add(SmartClassroomDevice d) { devices.add(d); }
 
-    // first device matching the given capability
+    // grab the first device that supports a given interface
     @SuppressWarnings("unchecked")
     public <T> T getFirst(Class<T> capability) {
         for (SmartClassroomDevice d : devices) {
@@ -15,7 +15,7 @@ public class DeviceRegistry {
         throw new IllegalStateException("No device supports: " + capability.getSimpleName());
     }
 
-    // all devices matching the given capability
+    // grab all devices that support a given interface
     @SuppressWarnings("unchecked")
     public <T> List<T> getAll(Class<T> capability) {
         List<T> result = new ArrayList<>();

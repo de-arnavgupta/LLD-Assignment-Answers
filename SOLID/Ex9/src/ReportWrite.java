@@ -1,4 +1,4 @@
-// what the pipeline needs from a report writer
+// report writing interface
 public interface ReportWrite {
     String write(Submission s, int plag, int code);
 }

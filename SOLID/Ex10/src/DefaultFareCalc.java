@@ -1,4 +1,4 @@
-// base ₹50 + ₹6.67 per km
+// flat ₹50 base + ₹6.67 per km
 public class DefaultFareCalc implements FareCalc {
     private static final double BASE = 50.0;
     private static final double PER_KM = 6.6666666667;

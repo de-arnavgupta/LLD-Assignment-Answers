@@ -1,4 +1,5 @@
-// takes its dependencies through the constructor instead of creating them with new
+// runs plag check, grading, and report writing in order
+// all dependencies are injected so we can swap them out easily
 public class EvaluationPipeline {
     private final PlagiarismCheck plagiarismCheck;
     private final CodeGrade codeGrade;

@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-// loads default counters from a properties file into the singleton
+// reads counter values from a .properties file into the registry
 public class MetricsLoader {
 
     public MetricsRegistry loadFromFile(String path) throws IOException {
@@ -13,7 +13,7 @@ public class MetricsLoader {
             props.load(fis);
         }
 
-        // use the singleton, not a new instance
+        // grab the singleton
         MetricsRegistry registry = MetricsRegistry.getInstance();
 
         for (String key : props.stringPropertyNames()) {

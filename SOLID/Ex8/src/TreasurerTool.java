@@ -1,4 +1,4 @@
-// only handles money stuff
+// treasurer can only deal with money
 public class TreasurerTool implements FinanceOps {
     private final BudgetLedger ledger;
     public TreasurerTool(BudgetLedger ledger) { this.ledger = ledger; }
