@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// generates markers for demo/testing
-// uses MarkerStyleFactory so markers with the same style config share one object
+// generates random markers for testing
 public class MapDataSource {
 
     private static final String[] SHAPES = {"PIN", "CIRCLE", "SQUARE"};
@@ -28,7 +27,7 @@ public class MapDataSource {
             int size = SIZES[rnd.nextInt(SIZES.length)];
             boolean filled = rnd.nextBoolean();
 
-            // get shared style from the factory instead of creating a new one each time
+            // grab from factory so same styles are reused
             MarkerStyle style = styleFactory.get(shape, color, size, filled);
             out.add(new MapMarker(lat, lng, label, style));
         }

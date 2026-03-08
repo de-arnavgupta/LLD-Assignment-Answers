@@ -1,7 +1,6 @@
 package com.example.reports;
 
-// viewer now depends on the Report interface, not on any concrete class
-// this way it works with proxied reports transparently
+// talks to the Report interface — doesn't care if it's a proxy or real
 public class ReportViewer {
 
     public void open(Report report, User user) {

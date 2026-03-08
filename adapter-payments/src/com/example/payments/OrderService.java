@@ -10,7 +10,7 @@ public class OrderService {
         this.gateways = Objects.requireNonNull(gateways, "gateways");
     }
 
-    // lookup the right gateway from the map and delegate the charge to it
+    // find the gateway by name and charge
     public String charge(String provider, String customerId, int amountCents) {
         Objects.requireNonNull(provider, "provider");
         PaymentGateway gw = gateways.get(provider);

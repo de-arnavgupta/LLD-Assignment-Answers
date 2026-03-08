@@ -2,7 +2,7 @@ package com.example.map;
 
 import java.util.List;
 
-// prints a few markers to console to show rendering still works
+// just prints first few markers so we can see it works
 public class MapRenderer {
 
     public void render(List<MapMarker> markers) {

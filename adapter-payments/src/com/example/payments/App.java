@@ -5,12 +5,11 @@ import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
-        // register each provider behind the common PaymentGateway interface
+        // wire up adapters for each payment provider
         Map<String, PaymentGateway> gateways = new HashMap<>();
         gateways.put("fastpay", new FastPayAdapter(new FastPayClient()));
         gateways.put("safecash", new SafeCashAdapter(new SafeCashClient()));
 
-        // OrderService only talks to PaymentGateway, doesn't know about SDK details
         OrderService svc = new OrderService(gateways);
 
         String id1 = svc.charge("fastpay", "cust-1", 1299);

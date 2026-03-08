@@ -7,7 +7,7 @@ public class App {
         User faculty = new User("Prof. Noor", "FACULTY");
         User admin = new User("Kshitij", "ADMIN");
 
-        // create proxied reports - no disk loading happens yet
+        // nothing gets loaded from disk yet — just metadata
         Report publicReport = new ReportProxy("R-101", "Orientation Plan", "PUBLIC");
         Report facultyReport = new ReportProxy("R-202", "Midterm Review", "FACULTY");
         Report adminReport = new ReportProxy("R-303", "Budget Audit", "ADMIN");
@@ -16,23 +16,23 @@ public class App {
 
         System.out.println("=== CampusVault Demo ===");
 
-        // student can see public reports
+        // public — anyone can see this
         viewer.open(publicReport, student);
         System.out.println();
 
-        // student blocked from faculty report
+        // student tries faculty report — should get denied
         viewer.open(facultyReport, student);
         System.out.println();
 
-        // faculty can see faculty report - triggers lazy load
+        // faculty opens their report — first time, so it loads from disk
         viewer.open(facultyReport, faculty);
         System.out.println();
 
-        // admin can see admin report - triggers lazy load
+        // admin opens admin report
         viewer.open(adminReport, admin);
         System.out.println();
 
-        // second view of same admin report - uses cached version
+        // same report again — should come from cache this time
         viewer.open(adminReport, admin);
     }
 }

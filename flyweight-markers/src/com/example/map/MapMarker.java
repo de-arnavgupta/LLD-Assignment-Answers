@@ -1,13 +1,12 @@
 package com.example.map;
 
-// each marker stores only its own unique data (lat, lng, label)
-// the style is a shared reference obtained from MarkerStyleFactory
+// a single marker on the map — style is shared, rest is unique per marker
 public class MapMarker {
 
     private final double lat;
     private final double lng;
     private final String label;
-    private final MarkerStyle style;  // shared flyweight, not owned by this marker
+    private final MarkerStyle style; // shared across markers with same look
 
     public MapMarker(double lat, double lng, String label, MarkerStyle style) {
         this.lat = lat;

@@ -1,6 +1,6 @@
 package com.example.reports;
 
-// common interface for both the real report and the proxy
+// both RealReport and ReportProxy implement this
 public interface Report {
     void display(User user);
 }

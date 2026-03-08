@@ -1,7 +1,6 @@
 package com.example.reports;
 
-// the actual report that does the expensive disk load
-// this is the "real subject" in the proxy pattern
+// does the actual heavy disk read — only created when the proxy decides to
 public class RealReport implements Report {
 
     private final String reportId;
@@ -13,8 +12,7 @@ public class RealReport implements Report {
         this.reportId = reportId;
         this.title = title;
         this.classification = classification;
-        // expensive load happens once during construction
-        this.content = loadFromDisk();
+        this.content = loadFromDisk(); // load once at construction time
     }
 
     @Override

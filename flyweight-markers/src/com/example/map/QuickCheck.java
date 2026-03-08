@@ -4,8 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-// counts how many unique MarkerStyle objects exist across all markers
-// after flyweight, this should be a small number (bounded by style combinations)
+// checks how many unique style objects we actually ended up with
 public class QuickCheck {
 
     public static void main(String[] args) {

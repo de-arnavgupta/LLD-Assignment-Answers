@@ -2,8 +2,7 @@ package com.example.payments;
 
 import java.util.Objects;
 
-// wraps FastPayClient behind the common PaymentGateway interface
-// so OrderService doesn't need to know about FastPay's specific API
+// adapter for FastPay SDK
 public class FastPayAdapter implements PaymentGateway {
 
     private final FastPayClient client;
@@ -14,8 +13,9 @@ public class FastPayAdapter implements PaymentGateway {
 
     @Override
     public String charge(String customerId, int amountCents) {
-        // delegate to FastPay's own method signature
         return client.payNow(customerId, amountCents);
     }
 }
+
+
 

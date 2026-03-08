@@ -1,7 +1,6 @@
 package com.example.reports;
 
-// original concrete class - replaced by RealReport + ReportProxy in the refactored design
-// kept here so we can see what the old code looked like
+// old version before the proxy refactor — not used anymore
 public class ReportFile {
 
     private final String reportId;

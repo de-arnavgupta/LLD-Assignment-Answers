@@ -1,7 +1,6 @@
 package com.example.reports;
 
-// sits between the client and the real report
-// handles access control, lazy loads the real report, and caches it for reuse
+// proxy that checks permissions and avoids loading the report until actually needed
 public class ReportProxy implements Report {
 
     private final String reportId;
@@ -9,8 +8,7 @@ public class ReportProxy implements Report {
     private final String classification;
     private final AccessControl accessControl = new AccessControl();
 
-    // null until the first authorized access triggers loading
-    private RealReport cachedReport;
+    private RealReport cachedReport; // stays null until first legit access
 
     public ReportProxy(String reportId, String title, String classification) {
         this.reportId = reportId;
@@ -20,14 +18,14 @@ public class ReportProxy implements Report {
 
     @Override
     public void display(User user) {
-        // block unauthorized users before doing any expensive work
+        // check permission first
         if (!accessControl.canAccess(user, classification)) {
             System.out.println("ACCESS DENIED: " + user.getName()
                     + " (" + user.getRole() + ") cannot view " + classification + " report [" + reportId + "]");
             return;
         }
 
-        // lazy load - only create the real report on first authorized access
+        // load only on first access, reuse after that
         if (cachedReport == null) {
             cachedReport = new RealReport(reportId, title, classification);
         } else {

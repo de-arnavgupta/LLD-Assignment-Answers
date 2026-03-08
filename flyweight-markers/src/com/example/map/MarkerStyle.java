@@ -1,7 +1,6 @@
 package com.example.map;
 
-// immutable flyweight - holds shared style data for map markers
-// since these are shared across many markers, we don't allow any mutation
+// style config for a marker — kept immutable so it can be safely shared
 public class MarkerStyle {
 
     private final String shape;
